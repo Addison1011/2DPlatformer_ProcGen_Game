@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 504879653}
   - component: {fileID: 504879655}
   m_Layer: 0
-  m_Name: Square
+  m_Name: MapGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,11 +220,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda5162c5c148c74aa9d56e2450f8e69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizeX: 150
-  sizeY: 150
+  sizeX: 30
+  sizeY: 30
   tileMap: {fileID: 839485492}
   caveTile: {fileID: 11400000, guid: 966a5bbe076aca44ba8e3d705a5ace57, type: 2}
-  density: 60
+  density: 90
   smoothing_iterations: 2
 --- !u!1 &839485489
 GameObject:
@@ -650,6 +650,10 @@ PrefabInstance:
     - target: {fileID: 4299548378918324560, guid: 68770dbfbac9b1f47b2fbee238f64dc8, type: 3}
       propertyPath: jumpCoyoteTime
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4299548378918324560, guid: 68770dbfbac9b1f47b2fbee238f64dc8, type: 3}
+      propertyPath: platformLayerMask.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4299548378918324561, guid: 68770dbfbac9b1f47b2fbee238f64dc8, type: 3}
       propertyPath: m_UsedByComposite
