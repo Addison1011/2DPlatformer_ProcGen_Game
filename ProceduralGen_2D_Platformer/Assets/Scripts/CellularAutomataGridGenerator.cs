@@ -21,15 +21,15 @@ public class CellularAutomataGridGenerator : MonoBehaviour
         CellularAutomataGrid automata = new CellularAutomataGrid();
         CellularAutomataGrid.Cell[,] noisegrid = automata.MakeNoiseGrid(sizeX, sizeY, density);
         CellularAutomataGrid.Cell[,] cellGrid = automata.ApplyCellularAutomation(noisegrid, smoothing_iterations);
-        
-        
 
-        
+
+
+
         for (int r = 0; r < cellGrid.GetLength(0); r++)
         {
             for (int c = 0; c < cellGrid.GetLength(1); c++)
             {
-                
+
                 if (cellGrid[r, c] == CellularAutomataGrid.Cell.Full)
                 {
                     tileMap.SetTile(new Vector3Int(c, r), caveTile);
@@ -40,7 +40,7 @@ public class CellularAutomataGridGenerator : MonoBehaviour
 
     public class CellularAutomataGrid
     {
-        
+
         public CellularAutomataGrid()
         {
 
@@ -90,7 +90,6 @@ public class CellularAutomataGridGenerator : MonoBehaviour
 
         /*public Cell[,] ApplyCellularAutomation(Cell[,] grid, int smoothAmmount)
         {
-
             for (int s = 1; s < smoothAmmount; s++)
             {
                 Cell[,] tempGrid = grid;
@@ -98,8 +97,6 @@ public class CellularAutomataGridGenerator : MonoBehaviour
                 {
                     for (int c = 0; c < grid.GetLength(1); c++)
                     {
-
-
                             if (GetNeighboringCellSum(grid, x: c, y: r) > 4)
                             {
                                 grid[r, c] = Cell.Full;
@@ -109,11 +106,9 @@ public class CellularAutomataGridGenerator : MonoBehaviour
                                 grid[r, c] = Cell.Empty;
                             }
                         
-
                     }
                 }
             }
-
             return grid;
         }*/
 
@@ -212,33 +207,30 @@ public class CellularAutomataGridGenerator : MonoBehaviour
 
         private bool IsWithinGridBounds(Cell[,] grid, int x, int y)
         {
-            
+
             // check if cordinate pair is within bounds of cell map grid
             if ((x < grid.GetLength(1) && x >= 0) && (y < grid.GetLength(0) && y >= 0))
             {
-                
+
                 return true;
             }
             else
             {
-              
+
                 return false;
             }
         }
 
         /*public Cell[,] ApplyCellularAutomation(Cell[,] grid, int count)
         {
-
             for (int i = 1; i < count; i++)
             {
                 Cell[,] tempMap = grid;
-
                 for (int j = 0; j < grid.GetLength(0); j++)
                 {
                     for (int k = 0; k < grid.GetLength(1); k++)
                     {
                         int fullCellCount = 0;
-
                         // checks cell neighbors on the y axis in a 3x3 area
                         for (int y = j - 1; y <= j + 1; y++)
                         {
@@ -264,7 +256,6 @@ public class CellularAutomataGridGenerator : MonoBehaviour
                                 }
                             }
                         }
-
                         // Cell rules #expierment with these
                         if (fullCellCount > 4)
                         {
@@ -279,13 +270,10 @@ public class CellularAutomataGridGenerator : MonoBehaviour
                     }
                 }
             }
-
-
             return grid;
         }*/
 
 
     }
 }
-
 

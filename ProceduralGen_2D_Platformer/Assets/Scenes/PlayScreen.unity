@@ -217,15 +217,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 504879651}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bda5162c5c148c74aa9d56e2450f8e69, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d3837ca5b57ca44893d22c06af241ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizeX: 30
-  sizeY: 30
+  width: 75
+  height: 75
+  seed: 200
+  useRandomSeed: 1
+  caveTile: {fileID: 11400000, guid: 63854031cdc353a499f6d98e74b89b4d, type: 2}
   tileMap: {fileID: 839485492}
-  caveTile: {fileID: 11400000, guid: 966a5bbe076aca44ba8e3d705a5ace57, type: 2}
-  density: 90
-  smoothing_iterations: 2
+  randomFillPrecent: 48
 --- !u!1 &839485489
 GameObject:
   m_ObjectHideFlags: 0
