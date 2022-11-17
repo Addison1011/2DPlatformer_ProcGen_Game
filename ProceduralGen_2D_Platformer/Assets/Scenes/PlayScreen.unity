@@ -226,7 +226,7 @@ MonoBehaviour:
   useRandomSeed: 1
   caveTile: {fileID: 11400000, guid: 63854031cdc353a499f6d98e74b89b4d, type: 2}
   tileMap: {fileID: 839485492}
-  randomFillPrecent: 48
+  randomFillPrecent: 50
 --- !u!1 &839485489
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +581,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 20.65014
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -654,7 +654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4299548378918324560, guid: 68770dbfbac9b1f47b2fbee238f64dc8, type: 3}
       propertyPath: platformLayerMask.m_Bits
-      value: 0
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 4299548378918324561, guid: 68770dbfbac9b1f47b2fbee238f64dc8, type: 3}
       propertyPath: m_UsedByComposite
@@ -674,11 +674,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4299548378918324562, guid: 68770dbfbac9b1f47b2fbee238f64dc8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.01
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 4299548378918324562, guid: 68770dbfbac9b1f47b2fbee238f64dc8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.01
+      value: 14.4
       objectReference: {fileID: 0}
     - target: {fileID: 4299548378918324562, guid: 68770dbfbac9b1f47b2fbee238f64dc8, type: 3}
       propertyPath: m_LocalPosition.z

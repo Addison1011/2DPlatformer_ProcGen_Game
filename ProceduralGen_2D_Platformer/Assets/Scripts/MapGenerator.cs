@@ -14,6 +14,7 @@ public class MapGenerator : MonoBehaviour
 	[Range(0, 100)]
 	public int randomFillPrecent;
 	int[,] map;
+	int[,] tempMap;
 
 	void Start()
 	{
@@ -36,13 +37,29 @@ public class MapGenerator : MonoBehaviour
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
-			GenerateMap();
-		}
+            tileMap.ClearAllTiles();
+
+            GenerateMap();
+
+            for (int r = 0; r < map.GetLength(0); r++)
+            {
+                for (int c = 0; c < map.GetLength(1); c++)
+                {
+
+                    if (map[r, c] == 1)
+                    {
+                        tileMap.SetTile(new Vector3Int(c, r), caveTile);
+                    }
+                }
+            }
+        }
 	}
 
 	void GenerateMap()
 	{
+
 		map = new int[width, height];
+		
 		RandomFillMap();
 
 		for (int i = 0; i < 5; i++)
@@ -58,6 +75,7 @@ public class MapGenerator : MonoBehaviour
 		if (useRandomSeed)
 		{
 			seed = Guid.NewGuid().GetHashCode().ToString();
+			Guid
 			//print(Guid.NewGuid().GetHashCode());
 		}
 
@@ -84,6 +102,8 @@ public class MapGenerator : MonoBehaviour
 
 	void SmoothMap()
 	{
+		tempMap = map;
+
 		for (int x = 0; x < width; x++)
 		{
 			for (int y = 0; y < height; y++)
@@ -109,7 +129,7 @@ public class MapGenerator : MonoBehaviour
 				{
 					if (neighbourX != gridX || neighbourY != gridY)
 					{
-						wallCount += map[neighbourX, neighbourY];
+						wallCount += tempMap[neighbourX, neighbourY];
 					}
 				}
 				else
