@@ -217,16 +217,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 504879651}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d3837ca5b57ca44893d22c06af241ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 66c0597bacc7d8a4d9fb98557d3c8f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 75
-  height: 75
-  seed: 200
+  width: 300
+  height: 70
+  seed: 
   useRandomSeed: 1
   caveTile: {fileID: 11400000, guid: 63854031cdc353a499f6d98e74b89b4d, type: 2}
   tileMap: {fileID: 839485492}
-  randomFillPrecent: 50
+  randomFillPrecent: 55
+  smoothAmount: 1
 --- !u!1 &839485489
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +582,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20.65014
+  orthographic size: 36.698654
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -646,7 +647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4299548378918324560, guid: 68770dbfbac9b1f47b2fbee238f64dc8, type: 3}
       propertyPath: frictionAmount
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4299548378918324560, guid: 68770dbfbac9b1f47b2fbee238f64dc8, type: 3}
       propertyPath: jumpCoyoteTime
@@ -674,11 +675,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4299548378918324562, guid: 68770dbfbac9b1f47b2fbee238f64dc8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.5
+      value: 63.2
       objectReference: {fileID: 0}
     - target: {fileID: 4299548378918324562, guid: 68770dbfbac9b1f47b2fbee238f64dc8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.4
+      value: 16.6
       objectReference: {fileID: 0}
     - target: {fileID: 4299548378918324562, guid: 68770dbfbac9b1f47b2fbee238f64dc8, type: 3}
       propertyPath: m_LocalPosition.z
