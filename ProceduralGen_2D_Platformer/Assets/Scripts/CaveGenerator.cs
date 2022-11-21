@@ -104,14 +104,14 @@ namespace WorldGeneration
                             map[y, x] = Cell.Empty;
                     }
 
-                    // rudimentary path
+                    /* rudimentary path
                     if (y > height/2 - 3 && y < height/2+3)
                     {
                         if (pseudoRandom.Next(0, 100) < 15)
                             map[y,x] = Cell.Wall;
                         else
                             map[y, x] = Cell.Empty;
-                    }
+                    }*/
                 }
             }
         }
