@@ -14,54 +14,25 @@ namespace WorldGeneration
 
     public class CaveGenerator
     {
-        public int height;
-        public int width;
-        public int randomFillPercent;
-        public int smoothAmount;
+        public static int height;
+        public static int width;
+        public static int randomFillPercent;
+        public static int smoothAmount;
 
         public string seed;
 
         public bool useRandomSeed;
-        Cell[,] map;
-        Cell[,] tempMap;
+        public static Cell[,] map;
+        public static Cell[,] tempMap;
 
-        public CaveGenerator(int width, int height, string seed, bool useRandomSeed, int randomFillPercent, int smoothAmount)
-        {
-            this.height = height;
-            this.width = width;
-            this.seed = seed;
-            this.useRandomSeed = useRandomSeed;
-            this.randomFillPercent = randomFillPercent;
-            this.smoothAmount = smoothAmount;
-
-            this.tempMap = new Cell[0, 0];
-            
-        }
-
-        // Generate map based on original given object parameters
-        public Cell[,] GenerateMap()
-        {
-           
-            this.map = new Cell[this.height, this.width];
-
-            RandomFillMap(this.useRandomSeed, this.seed, this.randomFillPercent);
-
-            for (int i = 0; i < this.smoothAmount; i++)
-            {
-                SmoothMap();
-            }
-
-            return this.map;
-
-        }
 
         // Generate new different map without creating new object
-        public Cell[,] GenerateMap(int newWidth, int newHeight, string newSeed, bool useRandomSeed, int randomFillPercent, int smoothAmount)
+        public static Cell[,] GenerateMap(int newWidth, int newHeight, string newSeed, bool useRandomSeed, int randomFillPercent, int smoothAmount)
         {
             // reset width and height
-            this.height = newHeight;
-            this.width = newWidth;
-            this.map = new Cell[newHeight, newWidth];
+            height = newHeight;
+            width = newWidth;
+            map = new Cell[newHeight, newWidth];
 
             RandomFillMap(useRandomSeed, newSeed, randomFillPercent);
 
@@ -70,12 +41,12 @@ namespace WorldGeneration
                 SmoothMap();
             }
 
-            return this.map;
+            return map;
 
         }
 
         // Fills map with random Wall/Empty Cells based on newly generated parameters
-        private void RandomFillMap(bool useRandomSeed, string seed, int randomFillPercent)
+        private static void RandomFillMap(bool useRandomSeed, string seed, int randomFillPercent)
         {
             if (useRandomSeed)
             {
@@ -117,7 +88,7 @@ namespace WorldGeneration
         }
 
    
-        private void SmoothMap()
+        private static void SmoothMap()
         {
             tempMap = map;
 
@@ -135,7 +106,7 @@ namespace WorldGeneration
             }
         }
 
-        private int GetSurroundingWallCount(int gridX, int gridY)
+        private static int GetSurroundingWallCount(int gridX, int gridY)
         {
             int wallCount = 0;
 
@@ -165,6 +136,11 @@ namespace WorldGeneration
                 }
             }
             return wallCount;
+        }
+
+        public static Vector3Int FindCellLocation(Vector3Int mapOriginPosition, int yRow, int xCol)
+        {
+            return (new Vector3Int(mapOriginPosition.x + xCol, mapOriginPosition.y + yRow, mapOriginPosition.z));
         }
     }
 }
