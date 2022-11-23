@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 using Random = UnityEngine.Random;
+
 
 namespace WorldGeneration
 {
@@ -20,6 +22,7 @@ namespace WorldGeneration
             while(roomsQueue.Count > 0)
             {
                 var room = roomsQueue.Dequeue();
+                
 
                 // if room is splittable
                 //ToDo combine redundent logic
@@ -98,35 +101,6 @@ namespace WorldGeneration
         }
     }
 
-    public class Room
-    {
-        private Vector3Int position { get; set; }
-        private BoundsInt bounds { get; set; }
-        private Cell[,] cellMap { get; set; }
-
-        public Room(Vector3Int position, BoundsInt roomBounds)
-        {
-            this.position = position;
-            this.bounds = roomBounds;
-        }
-
-        public Vector3Int Position
-        {
-            get { return position; }
-            set { position = value; }
-        }
-
-        public BoundsInt Bounds
-        {
-            get { return bounds; }
-            set { bounds = value; }
-        }
-
-        public Cell[,] CellMap
-        {
-            get { return cellMap; }
-            set { cellMap = value; }
-        }
-    }
+    
 }
 

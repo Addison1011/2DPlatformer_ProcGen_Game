@@ -226,9 +226,9 @@ MonoBehaviour:
   tileMap: {fileID: 839485492}
   offset: 2000
   chunkSize: {x: 100, y: 100, z: 0}
-  minRoomWidth: 20
-  minRoomHeight: 20
-  randomFillPrecent: 39
+  minRoomWidth: 15
+  minRoomHeight: 15
+  randomFillPrecent: 50
   smoothAmount: 2
 --- !u!1 &839485489
 GameObject:

@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 namespace WorldGeneration {
     public class WorldGenerator : MonoBehaviour
     {
-        private RoomBSPGenerator roomBSPGenerator;
         //public int width;
         //public int height;
         public string seed;
         public bool useRandomSeed;
         public Tile caveTile;
+        public Tile otherTile;
         public Tilemap tileMap;
         public int offset;
 
@@ -22,18 +23,13 @@ namespace WorldGeneration {
         [Range(0, 100)]
         public int randomFillPrecent;
         public int smoothAmount;
-        Cell[,] caveMap;
+
 
     // Start is called before the first frame update
         void Start()
         {
 
-
-
-
-
-
-            CreateRooms();
+            DrawRooms();
 
         }
 
@@ -46,55 +42,48 @@ namespace WorldGeneration {
 
                 tileMap.ClearAllTiles();
 
-                CreateRooms();
+                GenerateMap();
 
             }
         }
 
-        
-        public void CreateRooms()
+        public void GenerateMap()
         {
-            List<Room> roomList = GenerateRoomList();
-            foreach(Room room in roomList)
+            Cell[,] map = new Cell[minRoomHeight, minRoomWidth];
+            map = ProceduralGenerationAlgorithms.CellularAutomata.GenerateNewCave(minRoomWidth, minRoomHeight, seed, true, randomFillPrecent, smoothAmount);
+            for (int r = 0; r < map.GetLength(0); r++)
             {
-                room.CellMap = CaveGenerator.GenerateMap(room.Bounds.x, room.Bounds.y, seed, useRandomSeed, randomFillPrecent, smoothAmount);
-            }
-
-            
-
-            foreach (Room room in roomList)
-            {
-
-                for(int r = 0; r < room.CellMap.GetLength(0); r++)
+                for (int c = 0; c < map.GetLength(1); c++)
                 {
-                    for (int c = 0; c < room.CellMap.GetLength(1); c++)
+                    if (map[r, c] == Cell.Wall)
                     {
-                        if (room.CellMap[r, c] == Cell.Wall)
-                        {
-                            tileMap.SetTile(new Vector3Int(room.Position.x + c, room.Position.y + r), caveTile);
-                        }
+                        tileMap.SetTile(new Vector3Int(c, r, 0), caveTile);
                     }
                 }
             }
 
         }
 
-        private List<Room> GenerateRoomList()
+        public void DrawRooms()
         {
-            // create room list with position and size defined
-            List<BoundsInt> roomListBSP = RoomBSPGenerator.BinarySpacePartitioning(new BoundsInt(new Vector3Int(0, 0, 0), chunkSize), minRoomWidth, minRoomHeight);
+            RoomSeperationAlgorithims.TinyKeepDungeonAlgorithim algorithim = new RoomSeperationAlgorithims.TinyKeepDungeonAlgorithim();
+            
             List<Room> rooms = new List<Room>();
-            int x = minRoomWidth;
-            int y = minRoomHeight;
-            foreach (BoundsInt i in roomListBSP)
-            {
-                
-                rooms.Add(new Room(new Vector3Int(x, y, 0), i));
-                x += minRoomWidth;
-                y += minRoomHeight;
-            }
+            rooms = algorithim.PlaceRandomRooms(10, new Vector2Int(15, 15), new Vector2Int(8, 8), 15);
 
-            return rooms;
+                foreach (Room room in rooms)
+            {
+                for (int r = 0; r < room.RoomTiles.GetLength(0); r++)
+                {
+                    for (int c = 0; c < room.RoomTiles.GetLength(1); c++)
+                    {
+                        if (room.RoomTiles[r, c] == Cell.Wall)
+                            tileMap.SetTile(new Vector3Int(room.RoomBounds.x - room.RoomBounds.size.x / 2  + c, room.RoomBounds.position.y - room.RoomBounds.size.y / 2 + r), caveTile);
+                    }
+                }
+            }
         }
+
+
     }
 }
