@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 348682618}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 504879654}
@@ -240,14 +240,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504879651}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 348682619}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &504879655
 MonoBehaviour:
@@ -266,12 +266,11 @@ MonoBehaviour:
   caveTile: {fileID: 11400000, guid: 63854031cdc353a499f6d98e74b89b4d, type: 2}
   otherTile: {fileID: 11400000, guid: d10e7d9928f05084bb1fcfbc03ce8a14, type: 2}
   tileMap: {fileID: 839485492}
-  offset: 2000
-  chunkSize: {x: 100, y: 100, z: 0}
-  minRoomWidth: 100
-  minRoomHeight: 100
   randomFillPrecent: 50
   smoothAmount: 2
+  roomBounds:
+    m_Position: {x: 0, y: 0, z: 0}
+    m_Size: {x: 100, y: 100, z: 0}
 --- !u!1 &839485489
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,14 +537,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114399575}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 839485490}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1325934378 stripped
 GameObject:
@@ -719,11 +718,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4299548378918324562, guid: 68770dbfbac9b1f47b2fbee238f64dc8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 63.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4299548378918324562, guid: 68770dbfbac9b1f47b2fbee238f64dc8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4299548378918324562, guid: 68770dbfbac9b1f47b2fbee238f64dc8, type: 3}
       propertyPath: m_LocalPosition.z

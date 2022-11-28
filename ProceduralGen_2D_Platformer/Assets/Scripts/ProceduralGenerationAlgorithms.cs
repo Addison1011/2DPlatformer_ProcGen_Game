@@ -150,10 +150,7 @@ namespace WorldGeneration
                 return wallCount;
             }
 
-            public static Vector3Int FindCellLocation(Vector3Int mapOriginPosition, int yRow, int xCol)
-            {
-                return (new Vector3Int(mapOriginPosition.x + xCol, mapOriginPosition.y + yRow, mapOriginPosition.z));
-            }
+            
         }
     }
 }
